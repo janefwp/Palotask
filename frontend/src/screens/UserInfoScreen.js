@@ -48,7 +48,8 @@ function UserInfoScreen({history}) {
                     <Form.Group as={Col} controlId="inlineFormInputName">
                         <Form.Label>First Name</Form.Label>
                         <Form.Control 
-                            type='type'
+                            type='text'
+                            required="required" 
                             placeholder='First Name'
                             value={firstname}
                             onChange={(e) => setFirstname(e.target.value)} />
@@ -56,7 +57,8 @@ function UserInfoScreen({history}) {
                     <Form.Group as={Col} controlId="inlineFormInputName">
                         <Form.Label>Last Name</Form.Label>
                         <Form.Control 
-                            type="text" 
+                            type="text"
+                            required="required" 
                             placeholder="Last Name"
                             value={lastname}
                             onChange={(e) => setLastname(e.target.value)} />
@@ -67,6 +69,7 @@ function UserInfoScreen({history}) {
                     <Form.Label>Email</Form.Label>
                     <Form.Control 
                         type="email" 
+                        required="required" 
                         placeholder="Enter email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)} />
@@ -76,6 +79,7 @@ function UserInfoScreen({history}) {
                     <Form.Label>Address</Form.Label>
                     <Form.Control 
                         type='text'
+                        required="required" 
                         placeholder="1234 Main St"
                         value={address}
                         onChange={(e) => setAddress(e.target.value)} />
@@ -87,6 +91,7 @@ function UserInfoScreen({history}) {
                         <Form.Label>City</Form.Label>
                         <Form.Control 
                             type='text'
+                            required="required" 
                             value={city}
                             onChange={(e) => setCity(e.target.value)}
                         />
@@ -94,8 +99,8 @@ function UserInfoScreen({history}) {
 
                     <Form.Group as={Col} controlId="formGridState">
                         <Form.Label>State</Form.Label>
-                        <Form.Control as="select" 
-                                    defaultValue="Choose..." 
+                        <Form.Control as="select"
+                                    required="required" 
                                     onChange={(e) => setState(e.target.value)}>
                             <option>Choose...</option>
                             <option>New South Wales</option>
@@ -113,6 +118,7 @@ function UserInfoScreen({history}) {
                         <Form.Label>Zip</Form.Label>
                         <Form.Control 
                             type='number'
+                            required="required" 
                             value={zip}
                             onChange={(e) => setZip(e.target.value)}
                         />

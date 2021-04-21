@@ -61,11 +61,12 @@ function HomeScreen({history}) {
                         <Form.Group controlId="exampleForm.ControlSelect1">
                             <Form.Label>What is your illness?</Form.Label>
                             <Form.Control
-                            as="select"
-                            name="illness"
-                            onChange={handleillnessChange}
-                            value={illnessId}
+                                as="select"
+                                name="illness"
+                                onChange={handleillnessChange}
+                                required="required"
                             >
+                                <option value="">--Select An Illness--</option>
                             {
                                 illnesses?.map((illness) => <option value={illness.illness.id} key={illness.illness.id}>{illness.illness.name}</option>)
                 
@@ -75,7 +76,12 @@ function HomeScreen({history}) {
                         <Form.Group>
                             <Form.Label>What is the severity?</Form.Label>
                             <br />
-                            <ButtonGroup aria-label="Basic example" className=" button-block" name="severity" value={severityId} onClick={handleseverityChange}>
+                            <ButtonGroup 
+                                aria-label="Basic example" 
+                                className=" button-block" 
+                                name="severity"
+                                value={severityId} 
+                                onClick={handleseverityChange}>
                                 <Button variant="outline-secondary" value={0}>🙂Level 0</Button>
                                 <Button variant="outline-secondary" value={1}>😐Level 1</Button>
                                 <Button variant="outline-secondary" value={2}>😖Level 2</Button>
