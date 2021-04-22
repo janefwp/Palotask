@@ -15,7 +15,7 @@ function HospitalScreen({history}) {
     const { error, loading, hospitals} = hospitalList
     useEffect(() => {
         dispatch(sortHospitals(severityLevel, hospitals))
-    }, [dispatch, loading])
+    }, [dispatch])
     return (
         <div>
             { loading ? <Loader /> 

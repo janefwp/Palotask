@@ -3,6 +3,7 @@ import {
     HOSPITAL_LIST_REQUEST,
     HOSPITAL_LIST_SUCCESS,
     HOSPITAL_LIST_FAIL,
+    HOSPITAL_LIST_SORT_REQUEST,
     HOSPITAL_LIST_SORT,
     ILLNESS_LIST_REQUEST,
     ILLNESS_LIST_SUCCESS,
@@ -132,6 +133,7 @@ export const saveUserInfotoDatabase = (userInfo) => async (dispatch) => {
 
 
 export const sortHospitals = (severity,hospitals) => (dispatch) => {
+    dispatch({type:HOSPITAL_LIST_SORT_REQUEST})
     const data=[]
     const tmpArray =[...hospitals]
     const mapped = tmpArray.map((item) => {
