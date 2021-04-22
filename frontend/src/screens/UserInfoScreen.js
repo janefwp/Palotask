@@ -12,7 +12,8 @@ function UserInfoScreen({history}) {
     const [state, setState]= useState('')
     const [zip, setZip]= useState('')
     const illnessInfo = useSelector(state => state.illnessInfo) 
-    const {illnessId, severityLevel, hospitalId} = illnessInfo
+    const {illnessItem, severityLevel, hospitalId} = illnessInfo
+    const illnessId=illnessItem.id
     const dispatch= useDispatch()
     const handleSubmit=(e)=>{
         dispatch(saveUserInfotoDatabase({

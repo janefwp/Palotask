@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { Row, Col, Form, Button, ButtonGroup, ToggleButtonGroup} from 'react-bootstrap'
+import { Button, ButtonGroup} from 'react-bootstrap'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
 
@@ -16,7 +16,7 @@ function SubmitresultScreen({history}) {
         <div>
             {loading ? <Loader /> 
                 : error ? <Message variant='danger'>{error}</Message>
-                    : <Message >{'Submit success'}</Message>
+                    : <Message >{'Your appointment has been submitted successfully !'}</Message>
             }
             {error ? <Button onClick={handleClick}>Try Again</Button> : <Button onClick={handleClick}>Book another</Button>}
             

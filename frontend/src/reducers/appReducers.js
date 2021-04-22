@@ -24,8 +24,6 @@ export const hospitalListReducer = (state={hospitals:[]},action) => {
             return {
                 loading:false, 
                 hospitals: action.payload._embedded.hospitals, 
-                page: action.payload.page, 
-                pages: action.payload.page.totalPages 
             }
         case HOSPITAL_LIST_FAIL:
             return { loading: false, error: action.payload }
@@ -38,14 +36,12 @@ export const hospitalListReducer = (state={hospitals:[]},action) => {
 export const illnessListReducer = (state={illnesses:[]},action) => {
 
     switch(action.type) {
-        case SAVE_USERINFO_TO_DATABASE_REQUEST:
+        case ILLNESS_LIST_REQUEST:
             return {loading:true, illnesses: []}
         case ILLNESS_LIST_SUCCESS:
             return {
                 loading:false, 
                 illnesses: action.payload._embedded.illnesses, 
-                page: action.payload.page, 
-                pages:action.payload.page.totalPages 
             }
         case ILLNESS_LIST_FAIL:
             return { loading: false, error: action.payload }
@@ -55,12 +51,12 @@ export const illnessListReducer = (state={illnesses:[]},action) => {
     }
 }
 
-export const illnessInfoReducer =(state={ loading:false }, action) => {
+export const illnessInfoReducer =(state={ illnessItem:[],loading:false }, action) => {
     switch (action.type) {
         case SET_ILLNESS_ITEM:
             return{
                 ...state,
-                illnessId: action.payload
+                illnessItem: action.payload
             }
         case SET_ILLNESS_SEVERITY:
             return{

@@ -11,8 +11,8 @@ const reducer =combineReducers({
     illnessInfo: illnessInfoReducer
 })
 
-const illnessIdFromStorage = localStorage.getItem('illnessId') ?
-    JSON.parse(localStorage.getItem('illnessId')) : 1
+const illnessItemFromStorage = localStorage.getItem('illnessItem') ?
+    JSON.parse(localStorage.getItem('illnessItem')) : 1
 
 const hospitalIdFromStorage = localStorage.getItem('hospitalId') ?
     JSON.parse(localStorage.getItem('hospitalId')) : 1
@@ -22,12 +22,12 @@ const severityLevelFromStorage = localStorage.getItem('severityLevel') ?
     JSON.parse(localStorage.getItem('severityLevel')) : 0
 
 const userformInfoFromStorage = localStorage.getItem('userformInfo') ?
-    JSON.parse(localStorage.getItem('userformInfo')) : []
+    JSON.parse(localStorage.getItem('userformInfo')) : {}
 
 
 const initialState ={
     illnessInfo: {
-        illnessId: illnessIdFromStorage,
+        illnessItem: illnessItemFromStorage,
         severityLevel: severityLevelFromStorage,
         hospitalId: hospitalIdFromStorage,
         userformInfo: userformInfoFromStorage,

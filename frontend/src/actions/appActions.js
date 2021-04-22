@@ -59,14 +59,16 @@ export const listIllnesss = () => async (dispatch) => {
 
 }
 
-export const saveIllnessitem = (data) => (dispatch) => {
+export const saveIllnessItem = (data) => (dispatch) => {
     dispatch({
         type: SET_ILLNESS_ITEM,
         payload: data,
     })
 
-    localStorage.setItem('illnessId', JSON.stringify(data))
+    localStorage.setItem('illnessItem', JSON.stringify(data))
 }
+
+
 
 export const saveIllnessseverity = (data) => (dispatch) => {
     dispatch({

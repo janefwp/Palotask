@@ -5,6 +5,8 @@ import Footer from './components/Footer'
 import HomeScreen from './screens/HomeScreen'
 import UserInfoScreen from './screens/UserInfoScreen'
 import SubmitresultScreen from './screens/SubmitresultScreen'
+import SeverityScreen from './screens/SeverityScreen'
+import HospitalScreen from './screens/HospitalScreen'
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
       <main className="py-3">
         <Container>
           <Route path='/' component={HomeScreen} exact />
+          <Route path='/severity' component={SeverityScreen} exact />
+          <Route path='/hospitals' component={HospitalScreen} exact />
           <Route path='/userInfoForm' component={UserInfoScreen} exact />
           <Route path='/submitresult' component={SubmitresultScreen} exact />
         </Container>
