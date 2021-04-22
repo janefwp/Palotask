@@ -2,6 +2,7 @@ import {
     HOSPITAL_LIST_REQUEST,
     HOSPITAL_LIST_SUCCESS,
     HOSPITAL_LIST_FAIL,
+    HOSPITAL_LIST_SORT,
     ILLNESS_LIST_REQUEST,
     ILLNESS_LIST_SUCCESS,
     ILLNESS_LIST_FAIL,
@@ -16,22 +17,27 @@ import {
 } from '../constants/appConstants'
 
 export const hospitalListReducer = (state={hospitals:[]},action) => {
-
     switch(action.type) {
         case HOSPITAL_LIST_REQUEST:
             return {loading:true, hospitals: []}
-        case HOSPITAL_LIST_SUCCESS:
+        case HOSPITAL_LIST_SUCCESS:           
             return {
                 loading:false, 
                 hospitals: action.payload._embedded.hospitals, 
             }
         case HOSPITAL_LIST_FAIL:
             return { loading: false, error: action.payload }
-
+        
+        case HOSPITAL_LIST_SORT:
+            return{ 
+                loading: false, 
+                hospitals: action.payload,
+            }
         default:
             return state
     }
 }
+
 
 export const illnessListReducer = (state={illnesses:[]},action) => {
 

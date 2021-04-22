@@ -5,7 +5,6 @@ import { saveHospitalitem  } from '../actions/appActions'
 
 
 function Hospital({ hospital, severity, history}) {
-    console.log(severity)
     const waititem=hospital.waitingList[severity]
     const patientCount=waititem.patientCount
     const averageProcessTime=waititem.averageProcessTime

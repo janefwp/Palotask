@@ -3,6 +3,7 @@ import {
     HOSPITAL_LIST_REQUEST,
     HOSPITAL_LIST_SUCCESS,
     HOSPITAL_LIST_FAIL,
+    HOSPITAL_LIST_SORT,
     ILLNESS_LIST_REQUEST,
     ILLNESS_LIST_SUCCESS,
     ILLNESS_LIST_FAIL,
@@ -15,6 +16,7 @@ import {
     SET_USERFORM_INFO
 
 } from '../constants/appConstants'
+
 
 export const listHospitals = () => async (dispatch) => {
     try {
@@ -126,4 +128,28 @@ export const saveUserInfotoDatabase = (userInfo) => async (dispatch) => {
         
     }
 
+}
+
+
+export const sortHospitals = (severity,hospitals) => (dispatch) => {
+    const data=[]
+    const tmpArray =[...hospitals]
+    const mapped = tmpArray.map((item) => {
+        var time=item.waitingList[severity].patientCount * item.waitingList[severity].averageProcessTime
+        return { item, waittime: time };
+        })
+      
+        mapped.sort(function (a, b) {
+            return a.waittime - b.waittime;
+          });
+
+    mapped.map(item=>{
+        data.push(item.item)
+    })
+
+    dispatch({
+        type: HOSPITAL_LIST_SORT,
+        payload: data,
+    })
+    
 }

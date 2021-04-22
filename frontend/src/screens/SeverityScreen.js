@@ -1,15 +1,13 @@
 import React from 'react'
 import { Button, ButtonGroup} from 'react-bootstrap'
-import { saveIllnessseverity,listHospitals} from '../actions/appActions'
-import { useDispatch } from 'react-redux'
+import { saveIllnessseverity} from '../actions/appActions'
+import { useDispatch, useSelector} from 'react-redux'
 
 function SeverityScreen({history}) {
-
     const dispatch= useDispatch()
     const handleClick=(e)=>{
         e.preventDefault()
         dispatch(saveIllnessseverity(e.target.value))
-        dispatch(listHospitals())
         history.push('./hospitals')
     }
     return (

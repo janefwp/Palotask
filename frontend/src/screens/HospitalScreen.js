@@ -1,18 +1,21 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { Form} from 'react-bootstrap'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch} from 'react-redux'
 import Hospital from '../components/Hospital'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
+import {sortHospitals} from '../actions/appActions'
 
 
 function HospitalScreen({history}) {
-
+    const dispatch = useDispatch()
     const hospitalList = useSelector(state=>state.hospitalList)
     const illness= useSelector(state=>state.illnessInfo)
     const {illnessItem, severityLevel} =illness
     const { error, loading, hospitals} = hospitalList
-
+    useEffect(() => {
+        dispatch(sortHospitals(severityLevel, hospitals))
+    }, [dispatch, loading])
     return (
         <div>
             { loading ? <Loader /> 
