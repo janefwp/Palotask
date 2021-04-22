@@ -26,7 +26,8 @@ SECRET_KEY = '#js5i*nzoc5w(4a2v@+m@i0j8z^7()6+ne#^@q^%iur06fdg&7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'myproshop-demo.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.herokuapp.com',
+                 'https://hospitalbooksystem.herokuapp.com/']
 
 
 # Application definition
