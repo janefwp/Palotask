@@ -12,7 +12,7 @@ const reducer =combineReducers({
 })
 
 const illnessItemFromStorage = localStorage.getItem('illnessItem') ?
-    JSON.parse(localStorage.getItem('illnessItem')) : 1
+    JSON.parse(localStorage.getItem('illnessItem')) : {}
 
 const hospitalIdFromStorage = localStorage.getItem('hospitalId') ?
     JSON.parse(localStorage.getItem('hospitalId')) : 1
