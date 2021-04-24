@@ -11,8 +11,8 @@ function UserInfoScreen({history}) {
     const [city, setCity] = useState('')
     const [state, setState]= useState('')
     const [zip, setZip]= useState('')
-    const illnessInfo = useSelector(state => state.illnessInfo) 
-    const {illnessItem, severityLevel, hospitalId} = illnessInfo
+    const userInfo = useSelector(state => state.userInfo) 
+    const {illnessItem, severityLevel, hospitalId} = userInfo
     const illnessId=illnessItem.id
     const dispatch= useDispatch()
     const handleSubmit=(e)=>{

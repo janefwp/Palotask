@@ -6,8 +6,8 @@ import Message from '../components/Message'
 
 function SubmitresultScreen({history}) {
 
-    const illnessInfo = useSelector(state=>state.illnessInfo)
-    const {loading, error}= illnessInfo
+    const userInfo = useSelector(state=>state.userInfo)
+    const {loading, error}= userInfo
     const handleClick=()=>{
         history.push('/')
     }

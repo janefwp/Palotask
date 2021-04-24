@@ -4,14 +4,14 @@ import { useSelector, useDispatch} from 'react-redux'
 import Hospital from '../components/Hospital'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
-import {listHospitals,sortHospitals} from '../actions/appActions'
+import {listHospitals} from '../actions/appActions'
 
 
 function HospitalScreen({history}) {
     const dispatch = useDispatch()
     const hospitalList = useSelector(state=>state.hospitalList)
-    const illness= useSelector(state=>state.illnessInfo)
-    const {illnessItem, severityLevel} =illness
+    const userinfo= useSelector(state=>state.userInfo)
+    const {illnessItem, severityLevel} =userinfo
     const { error, loading, hospitals} = hospitalList
     useEffect(() => {
         console.log(hospitals)

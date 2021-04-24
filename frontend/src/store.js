@@ -2,13 +2,13 @@ import { createStore, combineReducers, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
-import { hospitalListReducer,illnessListReducer, illnessInfoReducer} from './reducers/appReducers'
+import { hospitalListReducer,illnessListReducer, userInfoReducer} from './reducers/appReducers'
 
 
 const reducer =combineReducers({
     hospitalList: hospitalListReducer,
     illnessList: illnessListReducer,
-    illnessInfo: illnessInfoReducer
+    userInfo: userInfoReducer
 })
 
 const illnessItemFromStorage = localStorage.getItem('illnessItem') ?
@@ -26,7 +26,7 @@ const userformInfoFromStorage = localStorage.getItem('userformInfo') ?
 
 
 const initialState ={
-    illnessInfo: {
+    userInfo: {
         illnessItem: illnessItemFromStorage,
         severityLevel: severityLevelFromStorage,
         hospitalId: hospitalIdFromStorage,

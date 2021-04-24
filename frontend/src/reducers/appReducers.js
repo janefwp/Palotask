@@ -50,7 +50,7 @@ export const illnessListReducer = (state={illnesses:[]},action) => {
     }
 }
 
-export const illnessInfoReducer =(state={ illnessItem:[],loading:false }, action) => {
+export const userInfoReducer =(state={ illnessItem:[],loading:false }, action) => {
     switch (action.type) {
         case SET_ILLNESS_ITEM:
             return{
