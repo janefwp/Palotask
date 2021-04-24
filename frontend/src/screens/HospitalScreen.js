@@ -4,7 +4,7 @@ import { useSelector, useDispatch} from 'react-redux'
 import Hospital from '../components/Hospital'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
-import {sortHospitals} from '../actions/appActions'
+import {listHospitals,sortHospitals} from '../actions/appActions'
 
 
 function HospitalScreen({history}) {
@@ -14,7 +14,8 @@ function HospitalScreen({history}) {
     const {illnessItem, severityLevel} =illness
     const { error, loading, hospitals} = hospitalList
     useEffect(() => {
-        dispatch(sortHospitals(severityLevel, hospitals))
+        console.log(hospitals)
+        dispatch(listHospitals(severityLevel))
     }, [dispatch])
     return (
         <div>

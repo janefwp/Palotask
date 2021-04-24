@@ -3,8 +3,6 @@ import {
     HOSPITAL_LIST_REQUEST,
     HOSPITAL_LIST_SUCCESS,
     HOSPITAL_LIST_FAIL,
-    HOSPITAL_LIST_SORT_REQUEST,
-    HOSPITAL_LIST_SORT,
     ILLNESS_LIST_REQUEST,
     ILLNESS_LIST_SUCCESS,
     ILLNESS_LIST_FAIL,
@@ -19,14 +17,33 @@ import {
 } from '../constants/appConstants'
 
 
-export const listHospitals = () => async (dispatch) => {
+const sortHospitals = (severity,hospitals) => {
+    console.log(hospitals)
+    const data=[]
+    const tmpArray =[...hospitals]
+    const mapped = tmpArray.map((item) => {
+        var time=item.waitingList[severity].patientCount * item.waitingList[severity].averageProcessTime
+        return { item, waittime: time };
+        })
+      
+        mapped.sort(function (a, b) {
+            return a.waittime - b.waittime;
+          });
+
+    mapped.map(item=>{
+        data.push(item.item)
+    })
+    console.log(data)
+    return data
+}
+
+export const listHospitals = (severity) => async (dispatch) => {
     try {
         dispatch({type: HOSPITAL_LIST_REQUEST})
         const {data} = await axios.get(`http://dmmw-api.australiaeast.cloudapp.azure.com:8080/hospitals`)
-        console.log(data)
         dispatch({
             type:HOSPITAL_LIST_SUCCESS,
-            payload:data,
+            payload: sortHospitals(severity,data._embedded.hospitals),
         })
     }catch(error) {
         dispatch({
@@ -132,26 +149,27 @@ export const saveUserInfotoDatabase = (userInfo) => async (dispatch) => {
 }
 
 
-export const sortHospitals = (severity,hospitals) => (dispatch) => {
-    dispatch({type:HOSPITAL_LIST_SORT_REQUEST})
-    const data=[]
-    const tmpArray =[...hospitals]
-    const mapped = tmpArray.map((item) => {
-        var time=item.waitingList[severity].patientCount * item.waitingList[severity].averageProcessTime
-        return { item, waittime: time };
-        })
+// export const sortHospitals = (severity,hospitals) => (dispatch) => {
+
+//     dispatch({type:HOSPITAL_LIST_SORT_REQUEST})
+//     const data=[]
+//     const tmpArray =[...hospitals]
+//     const mapped = tmpArray.map((item) => {
+//         var time=item.waitingList[severity].patientCount * item.waitingList[severity].averageProcessTime
+//         return { item, waittime: time };
+//         })
       
-        mapped.sort(function (a, b) {
-            return a.waittime - b.waittime;
-          });
+//         mapped.sort(function (a, b) {
+//             return a.waittime - b.waittime;
+//           });
 
-    mapped.map(item=>{
-        data.push(item.item)
-    })
+//     mapped.map(item=>{
+//         data.push(item.item)
+//     })
 
-    dispatch({
-        type: HOSPITAL_LIST_SORT,
-        payload: data,
-    })
+//     dispatch({
+//         type: HOSPITAL_LIST_SORT,
+//         payload: data,
+//     })
     
-}
+// }

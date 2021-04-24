@@ -4,7 +4,7 @@ import Illness from '../components/Illness'
 import Loader from '../components/Loader'
 import Message from '../components/Message'
 import { useDispatch, useSelector } from 'react-redux'
-import { listIllnesss, listHospitals } from '../actions/appActions'
+import { listIllnesss } from '../actions/appActions'
 
 
 
@@ -15,7 +15,6 @@ function HomeScreen({history}) {
 
     useEffect(() => {
         dispatch(listIllnesss()) 
-        dispatch(listHospitals())
     }, [dispatch])
 
     return (

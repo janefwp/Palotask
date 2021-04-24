@@ -2,8 +2,6 @@ import {
     HOSPITAL_LIST_REQUEST,
     HOSPITAL_LIST_SUCCESS,
     HOSPITAL_LIST_FAIL,
-    HOSPITAL_LIST_SORT_REQUEST,
-    HOSPITAL_LIST_SORT,
     ILLNESS_LIST_REQUEST,
     ILLNESS_LIST_SUCCESS,
     ILLNESS_LIST_FAIL,
@@ -24,17 +22,10 @@ export const hospitalListReducer = (state={hospitals:[]},action) => {
         case HOSPITAL_LIST_SUCCESS:           
             return {
                 loading:false, 
-                hospitals: action.payload._embedded.hospitals, 
+                hospitals: action.payload, 
             }
         case HOSPITAL_LIST_FAIL:
             return { loading: false, error: action.payload }
-        case HOSPITAL_LIST_SORT_REQUEST:
-            return{loading:true}
-        case HOSPITAL_LIST_SORT:
-            return{ 
-                loading: false, 
-                hospitals: action.payload,
-            }
         default:
             return state
     }
