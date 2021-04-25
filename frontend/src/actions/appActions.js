@@ -147,29 +147,3 @@ export const saveUserInfotoDatabase = (userInfo) => async (dispatch) => {
     }
 
 }
-
-
-// export const sortHospitals = (severity,hospitals) => (dispatch) => {
-
-//     dispatch({type:HOSPITAL_LIST_SORT_REQUEST})
-//     const data=[]
-//     const tmpArray =[...hospitals]
-//     const mapped = tmpArray.map((item) => {
-//         var time=item.waitingList[severity].patientCount * item.waitingList[severity].averageProcessTime
-//         return { item, waittime: time };
-//         })
-      
-//         mapped.sort(function (a, b) {
-//             return a.waittime - b.waittime;
-//           });
-
-//     mapped.map(item=>{
-//         data.push(item.item)
-//     })
-
-//     dispatch({
-//         type: HOSPITAL_LIST_SORT,
-//         payload: data,
-//     })
-    
-// }
